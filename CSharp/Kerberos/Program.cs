@@ -107,7 +107,7 @@ namespace Kerberos
         }
         static void Help()
         {
-            Console.WriteLine("Please use an argument like kerberoast of azureadsso...");
+            Console.WriteLine("Please use an argument like kerberoast or azureadsso...");
             Console.WriteLine("");
             Console.WriteLine("Example: Kerberos.exe /kerberoast:<ServicePrincipalName>");
             Console.WriteLine("Example: Kerberos.exe /azureadsso");
