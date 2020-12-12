@@ -4,11 +4,16 @@ I have created a small C# project that requests a Ticket Granting Service (TGS) 
 
 I started the project for educational purposes only, but the tool works fine **and is not detected by Microsoft Defender for Identity** (tested with release 2.133 of Microsoft Defender for Identity).
 
+For more information about Azure AD SSO, please check my blog post:  
+**COMING SOON**
+
 For more information about Kerberoasting, please check my blog post:  
 https://thalpius.com/2020/11/30/microsoft-defender-for-identity-kerberoasting/
 
-For more information about Azure AD SSO, please check my blog post:  
-**COMING SOON**
+# Usage Azure AD SSO
+
+Request a TGS for Azure AD SSO using the following command:  
+```Kerberos.exe /azureadsso```
 
 # Usage Kerberoast
 
@@ -17,11 +22,6 @@ First search for an account with a service principal name you want to Kerberoast
 
 Once you've found an SPN, use it as a parameter to get the TGS hash which you can use to crack:  
 ```Kerberos.exe /kerberoast:MSSQLSERVER/SQL-Server.thalpius.demo:1433```
-
-# Usage Azure AD SSO
-
-Request a TGS for Azure AD SSO using the following command:  
-```Kerberos.exe /azureadsso```
 
 # Screenshots
 
