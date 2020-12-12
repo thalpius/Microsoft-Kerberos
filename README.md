@@ -20,7 +20,7 @@ Once you've found an SPN, use it as a parameter to get the TGS hash which you ca
 
 # Usage Azure AD SSO
 
-Request a TGS for Azure AD SSO using the following command:
+Request a TGS for Azure AD SSO using the following command:  
 ```Kerberos.exe /azureadsso```
 
 # Screenshots
