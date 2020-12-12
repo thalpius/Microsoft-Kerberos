@@ -130,6 +130,7 @@ namespace Kerberos
             else if (argument.StartsWith("/azureadsso"))
             {
                 GetToken("HTTP/autologon.microsoftazuread-sso.com");
+                Console.WriteLine("Getting the SPN for Aure AD SSO completed successfully. Now extract the TGS from memory...");
             }
             else
             {
