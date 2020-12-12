@@ -27,8 +27,8 @@ Request a TGS for Azure AD SSO using the following command:
 
 Getting all Service Principal Names within the domain:  
 
-![Alt text](/Screenshots/Kerberoasting_01.jpg?raw=true "Get SPNs")
+![Alt text](/Screenshots/Kerberoasting01.jpg?raw=true "Kerberoast")
 
 Using Kerberoasting.exe to get the Ticket Granting Service ticket to Kerberoast:  
 
-![Alt text](/Screenshots/Kerberoasting_02.jpg?raw=true "Get TGS")
+![Alt text](/Screenshots/Kerberoasting02.jpg?raw=true "Azure AD SSO")
