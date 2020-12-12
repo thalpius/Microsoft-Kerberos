@@ -113,11 +113,11 @@ namespace Kerberos
             Console.WriteLine("Example: Kerberos.exe /azureadsso");
             System.Environment.Exit(1);
         }
-        static void Main(string[] args)
+        static int Main(string[] args)
         {
-            // This is an ugly way to check arguments, but I did not want to use dependencies.
+            // This is an ugly way to check arguments, but I created this project for educational purposes only.
             // Feel free to fork the project and come with a better solution.
-            if(args.Length == 0 | args.Length > 2)
+            if (args.Length == 0 | args.Length > 1)
             {
                 Help();
             }
@@ -127,15 +127,24 @@ namespace Kerberos
                 String ServicePrincipalName = argument.Remove(0, 12);
                 Kerberoasting(ServicePrincipalName);
             }
-            else if (argument.StartsWith("/azureadsso"))
+            else if (argument == "/azureadsso")
             {
-                GetToken("HTTP/autologon.microsoftazuread-sso.com");
+                try
+                {
+                    GetToken("HTTP/autologon.microsoftazuread-sso.com");
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                    return 1;
+                }
                 Console.WriteLine("Getting the SPN for Aure AD SSO completed successfully. Now extract the TGS from memory...");
             }
             else
             {
                 Help();
             }
+            return 0;
         }
     }
 }
