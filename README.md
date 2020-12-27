@@ -20,7 +20,7 @@ Kerberos.exe /azureadsso
 # Usage Kerberoast
 
 First search for an account with a service principal name you want to Kerberoast:  
-```cmd
+```Batchfile
 setspn -Q */*
 ```
 
