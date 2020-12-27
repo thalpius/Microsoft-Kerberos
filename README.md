@@ -5,7 +5,7 @@ I have created a small C# project that requests a Ticket Granting Service (TGS) 
 I started the project for educational purposes only, but the tool works fine **and is not detected by Microsoft Defender for Identity** (tested with release 2.133 of Microsoft Defender for Identity).
 
 For more information about Azure AD SSO, please check my blog post:  
-**COMING SOON**
+https://thalpius.com/2020/12/14/microsoft-on-premises-to-the-cloud-using-seamless-single-sign-on/
 
 For more information about Kerberoasting, please check my blog post:  
 https://thalpius.com/2020/11/30/microsoft-defender-for-identity-kerberoasting/
