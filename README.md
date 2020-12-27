@@ -13,7 +13,7 @@ https://thalpius.com/2020/11/30/microsoft-defender-for-identity-kerberoasting/
 # Usage Azure AD SSO
 
 Request a TGS for Azure AD SSO using the following command:  
-```cmd
+```Batchfile
 Kerberos.exe /azureadsso
 ```
 
@@ -25,7 +25,7 @@ setspn -Q */*
 ```
 
 Once you've found an SPN, use it as a parameter to get the TGS hash which you can use to crack:  
-```cmd
+```Batchfile
 Kerberos.exe /kerberoast:MSSQLSERVER/SQL-Server.thalpius.demo:1433
 ```
 
