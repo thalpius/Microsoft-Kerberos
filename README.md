@@ -1,3 +1,6 @@
+> [!IMPORTANT]
+> "This repo is now in 'Blue Screen' mode—archived and frozen in time!"
+
 # Kerberos
 
 I have created a small C# project that requests a Ticket Granting Service (TGS) ticket using KerberosSecurityTokenProvider to use for Kerberoasting and an option to request an Azure AD SSO TGS. For more information about these attacks, see the links below.
